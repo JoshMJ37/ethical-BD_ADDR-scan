@@ -78,12 +78,12 @@ def scan_bluetooth():
 
     found_manufacturers_vulnerable_to_bluesmack = Counter()
     found_manufacturers_vulnerable_to_braktooth = Counter()
-    found_manufacturers_vulnerable_to_blueborne = Counter()
+    #found_manufacturers_vulnerable_to_blueborne = Counter()
 
 
     # below manufacturer names can be added from public repos
     known_manufacturers_vulnerable_to_braktooth = set() # add manufacturer names here
-    known_manufacturers_vulnerable_to_blueborn = set()  # add manufacturer names here if we decide to do it this way
+    #known_manufacturers_vulnerable_to_blueborne = set()  # add manufacturer names here if we decide to do it this way
     try:
         while True:
             print("Scanning for bluetooth devices: ")
@@ -132,9 +132,9 @@ def scan_bluetooth():
                     vulnerability_counters['braktooth'] += 1
                     found_manufacturers_vulnerable_to_braktooth[device_manufacturer] += 1
 
-                if device_manufacturer in known_manufacturers_vulnerable_to_braktooth:
-                    vulnerability_counters['blueborne'] += 1
-                    found_manufacturers_vulnerable_to_blueborne[device_manufacturer] += 1
+                #if device_manufacturer in known_manufacturers_vulnerable_to_blueborne:
+                #    vulnerability_counters['blueborne'] += 1
+                #    found_manufacturers_vulnerable_to_blueborne[device_manufacturer] += 1
 
                 del(upper_bits)
                 del(lower_bits)
@@ -152,7 +152,7 @@ def scan_bluetooth():
         found_manufacturers_vulnerable_to_tracking = remove_low_counters(found_manufacturers_vulnerable_to_tracking, manufacturers_to_remove)
         found_manufacturers_vulnerable_to_bluesmack = remove_low_counters(found_manufacturers_vulnerable_to_bluesmack, manufacturers_to_remove)
         found_manufacturers_vulnerable_to_braktooth = remove_low_counters(found_manufacturers_vulnerable_to_braktooth, manufacturers_to_remove)
-        found_manufacturers_vulnerable_to_blueborne = remove_low_counters(found_manufacturers_vulnerable_to_blueborne, manufacturers_to_remove)
+        #found_manufacturers_vulnerable_to_blueborne = remove_low_counters(found_manufacturers_vulnerable_to_blueborne, manufacturers_to_remove)
 
 
         # written to encrypted file
@@ -193,9 +193,9 @@ def scan_bluetooth():
         for key,val in found_manufacturers_vulnerable_to_braktooth.items():
             f.write(f"{key} : {val}\n")
 
-        f.write("\nManufacturer counts vulnerable to blueborne\n")
-        for key,val in found_manufacturers_vulnerable_to_blueborne.items():
-            f.write(f"{key} : {val}\n")
+#         f.write("\nManufacturer counts vulnerable to blueborne\n")
+#         for key,val in found_manufacturers_vulnerable_to_blueborne.items():
+#             f.write(f"{key} : {val}\n")
         f.close()
 
     return
