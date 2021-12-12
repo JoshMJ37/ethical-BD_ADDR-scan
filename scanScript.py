@@ -1,8 +1,7 @@
 import os
-import threading
 import time
 import sys
-import bluetooth
+import bluetooth # we will use a better library in actual run
 
 import uuid
 import hashlib
@@ -158,7 +157,7 @@ def scan_bluetooth():
 
         # written to encrypted file
         f = open("overall_scan_results.txt", "w")
-        f.write(f"unique_dvices: {len(seen_devices)}\n")
+        f.write(f"unique_devices: {len(seen_devices)}\n")
         f.write(f"scan_duration: {(end - start)/60}\n") # time in minutes
 
         f.write("\nVulnerability counts\n")

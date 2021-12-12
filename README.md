@@ -4,7 +4,7 @@ This code was made for CS 8803 EMS (at Georgia Tech)
 
 To run this code, clone the repo and run $ python3 scanScrip.py
 (Note: This code requires sudo access to use your device for bluetooth scanning.
-Also, this code was only tested on Ubuntu 20.04)
+Also, this code was only tested on RaspberryPi 4)
 
 Python dependencies: os, time, sys, bluetooth, uuid, hashlib, collections, requests
 
