@@ -82,7 +82,7 @@ def scan_bluetooth():
 
 
     # below manufacturer names can be added from public repos
-    known_manufacturers_vulnerable_to_braktooth = set() # add manufacturer names here
+    known_manufacturers_vulnerable_to_braktooth = set('Texas Instruments', 'Qualcomm', 'Intel', 'Samsung', 'Airoha', 'Mediatek') # add manufacturer names here
     #known_manufacturers_vulnerable_to_blueborne = set()  # add manufacturer names here if we decide to do it this way
     try:
         while True:
