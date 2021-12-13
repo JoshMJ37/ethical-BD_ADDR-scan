@@ -11,7 +11,7 @@ import requests
 start = time.time()
 end = time.time()
 
-# this is a current api that translates BD_ADDR prefixes to manufacturer names
+# this is an up-to-date api that translates BD_ADDR prefixes to manufacturer names
 web_api = 'https://macaddresschanger.com/bluetooth-mac-lookup/'
 threshold = 10
 packet_size = 600
@@ -81,8 +81,16 @@ def scan_bluetooth():
     #found_manufacturers_vulnerable_to_blueborne = Counter()
 
 
-    # below manufacturer names can be added from public repos
-    known_manufacturers_vulnerable_to_braktooth = set('Texas Instruments', 'Qualcomm', 'Intel', 'Samsung', 'Airoha', 'Mediatek') # add manufacturer names here
+    # Below manufacturer names were added from public repos
+    # These are the names of bluetooth chip manufacturers with known vulnerabilities
+        # to braktooth
+    known_manufacturers_vulnerable_to_braktooth = set(['Texas Instruments', 'Qualcomm Inc.'] +
+        ['Intel Corporation', 'Intel Corporate', 'Intel Wireless Network Group'] +
+        ['Samsung', 'Samsung Electronics Co.,Ltd', 'SAMSUNG ELECTRO MECHANICS CO., LTD.'] +
+        ['SAMSUNG TECHWIN CO.,LTD', 'SAMSUNG HEAVY INDUSTRIES CO., LTD.', 'Samsung Thales'] +
+        ['SAMSUNG ELECTRO-MECHANICS(THAILAND)', 'Samsung Electronics Co., Ltd. ARTIK'] +
+        ['Airoha Technology Corp.,', 'Mediatek Corp.', 'MediaTek Inc.'])
+
     #known_manufacturers_vulnerable_to_blueborne = set()  # add manufacturer names here if we decide to do it this way
     try:
         while True:
